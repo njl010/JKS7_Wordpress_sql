@@ -23,7 +23,7 @@ services:
       - 8081:80
     restart: always
     environment:
-      WORDPRESS_DB_HOST: db
+       WORDPRESS_DB_HOST: db
        WORDPRESS_DB_USER: userword
        WORDPRESS_DB_PASSWORD: lkj098
        WORDPRESS_DB_NAME: wordpress
