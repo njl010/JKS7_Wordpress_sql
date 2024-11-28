@@ -24,6 +24,6 @@ services:
       - WORDPRESS_DB_PASSWORD: lkj098
       - WORDPRESS_DB_NAME: wordpress
 volumes:
-  - db_data:
-  - wp_data: 
+  db_data:
+  wp_data: 
 
