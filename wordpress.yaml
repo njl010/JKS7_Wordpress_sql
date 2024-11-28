@@ -2,27 +2,31 @@ version: '3'
 services:
   db:
     image: mariadb:latest
+    container_name: mariadb
     volumes:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD: asd123.
-      - MYSQL_DATABASE: wordpress
-      - MYSQL_USER: userword
-      - MYSQL_PASSWORD: lkj098
+       MYSQL_ROOT_PASSWORD: asd123.
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: userword
+       MYSQL_PASSWORD: lkj098
 
   wordpress:
     image: wordpress
+    container_name: wordpress
     volumes:
       - wp_data:/var/www/html
+    depends_on:
+      - db
     ports:
       - 8081:80
     restart: always
     environment:
-      - WORDPRESS_DB_HOST: db
-      - WORDPRESS_DB_USER: userword
-      - WORDPRESS_DB_PASSWORD: lkj098
-      - WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: userword
+       WORDPRESS_DB_PASSWORD: lkj098
+       WORDPRESS_DB_NAME: wordpress
 volumes:
   db_data:
   wp_data: 
